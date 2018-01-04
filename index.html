@@ -11,6 +11,10 @@
 
     <!-- Custom stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <!-- Mapbox API -->
+    <script src='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v0.42.0/mapbox-gl.css' rel='stylesheet' />
   </head>
 
   <body>
@@ -37,11 +41,18 @@
           </div>
         </div>
 
-        </div>
+        <div id='map' style='width: 800px; height: 800px;'></div>
+        <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc3BlbmNlcjE5NzgiLCJhIjoiY2pjMHF2NWNpNDN5NjJ3bnRiY2Nqd2Z0eiJ9.Bl9JVO3zPlijka9o9Ub-Mw';
+        var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9'
+        });
+        </script>
       </div>
     </main>
 
-    <!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript and JQuery
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script
