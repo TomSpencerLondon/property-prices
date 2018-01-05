@@ -42,17 +42,8 @@
         </div>
 
         <div id='map' style='width: 800px; height: 800px;'></div>
-        <script>
-          mapboxgl.accessToken = 'pk.eyJ1IjoidG9tc3BlbmNlcjE5NzgiLCJhIjoiY2pjMHF2NWNpNDN5NjJ3bnRiY2Nqd2Z0eiJ9.Bl9JVO3zPlijka9o9Ub-Mw';
-          var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/light-v9',
-            center: [0, 52], // starting position
-            zoom: 8 // starting zoom
-          });
+        <script src='map.js'>
 
-          // Add zoom and rotation controls to the map.
-          map.addControl(new mapboxgl.NavigationControl());
         </script>
       </div>
     </main>
