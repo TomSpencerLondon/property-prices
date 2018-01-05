@@ -37,5 +37,9 @@ map.on('load', function() {
               "icon-size": 0.25
           }
       });
+      // fetch("https://api.zoopla.co.uk/api/v1/property_listings?api_key=xpxtkfqdy4z78pqfqz33ta88&postcode=cb87sb")
+      fetch("http://localhost:3000")
+      .then((response) => response.json())
+      .then((result) => document.getElementById("map").insertAdjacentText("afterend", JSON.stringify(result)));
   });
 });
