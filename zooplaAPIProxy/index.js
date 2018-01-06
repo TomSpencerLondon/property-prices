@@ -6,7 +6,7 @@ var api = require('./api');
 
 //Routes
 app.get('/', function(request,response) {
-  api.callFakeZooplaAPI(response);
+  api.callZooplaAPI(response);
 });
 
 app.listen(port, function() {
