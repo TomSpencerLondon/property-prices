@@ -35,13 +35,14 @@
           <div class="col-md-12 text-center">
             <p>Locate properties</p>
             <form class="form my-2 my-lg-0">
-              <input id="user" class="form-control mr-sm-2" type="text" placeholder="Enter Location" aria-label="Search">
-              <button id="search-user" class="btn btn-outline-success" type="submit">Submit</button>
+              <input id="postcode-entry" class="form-control mr-sm-2" type="text" placeholder="Enter Location" aria-label="Search">
+              <button id="search-property" class="btn btn-outline-success" type="submit">Submit</button>
             </form>
           </div>
         </div>
 
         <div id='map' style='width: 800px; height: 800px;'></div>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src='map.js'></script>
         <script src='properties.js'></script>
       </div>
