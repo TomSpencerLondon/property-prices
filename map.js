@@ -16,30 +16,50 @@ map.on('load', function() {
   map.loadImage(imageUrl, function(error, image) {
       if (error) throw error;
       map.addImage('cat', image);
-      map.addLayer({
-          "id": "points",
-          "type": "symbol",
-          "source": {
-              "type": "geojson",
-              "data": {
-                  "type": "FeatureCollection",
-                  "features": [{
-                      "type": "Feature",
-                      "geometry": {
-                          "type": "Point",
-                          "coordinates": [0, 0]
-                      }
-                  }]
-              }
-          },
-          "layout": {
-              "icon-image": "cat",
-              "icon-size": 0.25
-          }
-      });
-      // fetch("https://api.zoopla.co.uk/api/v1/property_listings?api_key=xpxtkfqdy4z78pqfqz33ta88&postcode=cb87sb")
-      fetch("http://localhost:3000")
-      .then((response) => response.json())
-      .then((result) => document.getElementById("map").insertAdjacentText("afterend", JSON.stringify(result)));
+
   });
 });
+
+document.getElementById("search-property").addEventListener("click", function(event){
+  propertySearch(document.getElementById("postcode-entry").value,
+    function(result){
+      // console.log(JSON.stringify(result));
+      for (propertyIdx in result.listing) {
+        const property = result.listing[propertyIdx]
+        console.log(JSON.stringify(property))
+        console.log("Latitude:" + property.latitude)
+        console.log("Longitude:" + property.longitude)
+      };
+      addLayer(result.listing)
+    });
+  event.preventDefault();
+})
+
+
+function addLayer(points) {
+  var features = []
+  for (var i = 0; i < points.length; ++i){
+      features.push({
+          "type": "Feature",
+          "geometry": {
+              "type": "Point",
+              "coordinates": [points[i].longitude, points[i].latitude]
+          }
+      })
+  }
+  map.addLayer({
+      "id": "points",
+      "type": "symbol",
+      "source": {
+          "type": "geojson",
+          "data": {
+              "type": "FeatureCollection",
+              "features": features
+          }
+      },
+      "layout": {
+          "icon-image": "cat",
+          "icon-size": 0.1
+      }
+  });
+}

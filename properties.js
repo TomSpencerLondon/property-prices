@@ -1,7 +1,6 @@
-function zooplaAPIRequest(){
-  fetch("https://api.zoopla.co.uk/api/v1/property_listings" + "?api_key=xpxtkfqdy4z78pqfqz33ta88&postcode=SW183DN")
-  .then(function(result){
-    console.log(result)
-  })
-
+function propertySearch(postcode, resultCallback){
+  fetch("http://localhost:3000/propertySearch?postcode=" + encodeURIComponent(postcode))
+  .then(response => response.json())
+  .then(result => resultCallback(result));
+  // .then(result => document.getElementById("map").insertAdjacentText("afterend", JSON.stringify(result)));
 }

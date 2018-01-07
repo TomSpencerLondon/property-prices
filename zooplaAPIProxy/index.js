@@ -5,8 +5,8 @@ var api = require('./api');
 
 
 //Routes
-app.get('/', function(request,response) {
-  api.callZooplaAPI(response);
+app.get('/propertySearch', function(request,response) {
+  api.propertySearch(request.query, response);
 });
 
 app.listen(port, function() {
