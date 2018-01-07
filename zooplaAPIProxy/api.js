@@ -1,15 +1,19 @@
 const fetch = require('node-fetch');
 const fs = require('fs');
 const axios = require('axios');
+const queryString = require('query-string');
 
-const apiKeyParameter = "api_key=xpxtkfqdy4z78pqfqz33ta88"
+const apiKey = "xpxtkfqdy4z78pqfqz33ta88"
 
 module.exports = {
 
-  callZooplaAPI (response){
+  propertySearch(params, response){
     console.log("Received request")
+    const combinedParams = Object.assign({api_key: apiKey }, params);
+    const paramString = queryString.stringify(combinedParams);
+
     axios
-      .get("https://api.zoopla.co.uk/api/v1/property_listings.js?" + apiKeyParameter + "&postcode=sw1")
+      .get("https://api.zoopla.co.uk/api/v1/property_listings.js?" + paramString)
       .then(res => res.data)
       .then(result =>
       {
@@ -20,7 +24,7 @@ module.exports = {
       .catch(error => console.log(error));
   },
 
-  callFakeZooplaAPI(response){
+  propertySearchFake(params, response){
     fs.readFile('propertyListingResult.json', 'utf8', function(err, data) {
       if (err) throw err;
       response.set("Access-Control-Allow-Origin", "*")
