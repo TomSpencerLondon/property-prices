@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <a class="navbar-brand" href="#">Property Prices Website</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  </div>
+</nav>
+
+<main role="main" class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <p>Locate properties</p>
+        <form class="form my-2 my-lg-0">
+          <input id="postcode-entry" class="form-control mr-sm-2" type="text" placeholder="Enter Location" aria-label="Search">
+          <button id="search-property" class="btn btn-outline-success" type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+    <div id='map' style='width: 800px; height: 800px;'></div>
+    <script src='/javascripts/map.js'></script>
+    <script src='/javascripts/zooplaAPIProxySender.js'></script>
+  </div>
+</main>
