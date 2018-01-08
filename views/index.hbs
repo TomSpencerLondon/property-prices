@@ -10,7 +10,7 @@
 
 <main role="main" class="container">
   <div class="container">
-    <div class="row">
+    <div class="row" id="search-row">
       <div class="col-md-12 text-center">
         <p>Locate properties</p>
         <form class="form my-2 my-lg-0">
@@ -20,7 +20,20 @@
       </div>
     </div>
 
-    <div id='map' style='width: 800px; height: 800px;'></div>
+    <div class="row">
+      <!-- This is where the listings appear -->
+      <div class="col-md-6">
+        <div id="listings">
+        </div>
+      </div>
+
+      <!-- This is where the map appears -->
+      <div class="col-md-6">
+        <div id="map" style='height: 400px;'>
+        </div>
+      </div>
+    </div>
+
     <script src='/javascripts/map.js'></script>
     <script src='/javascripts/zooplaAPIProxySender.js'></script>
   </div>
