@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "node ./spec/specRunner.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -12,8 +13,10 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "hbs": "~4.0.1",
+    "jasmine": "^2.8.0",
     "morgan": "~1.9.0",
     "query-string": "^5.0.1",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "zombie": "^5.0.7"
   }
 }
